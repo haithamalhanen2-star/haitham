@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>هيثم | Front-End Designer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- شريط التقدم (يظهر في الأعلى) -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- شريط التحكم العلوي -->
+  <div class="top-bar">
+    <!-- شعارك -->
+    <div class="logo">H.N</div>
+
+    <!-- شريط اللغات -->
+    <div class="language-bar">
+      <div class="lang-item" data-lang="ar" title="العربية">العربية</div>
+      <div class="lang-item" data-lang="fa" title="فارسی">الفارسية</div>
+      <div class="lang-item" data-lang="en" title="English">الانجليزية</div>
+      <div class="lang-item" data-lang="ku" title="کوردی">الكردية</div>
+    </div>
+
+    <!-- زر الوضع الداكن/النور -->
+    <button class="theme-toggle" id="themeToggle" title="تبديل الوضع">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+  </div>
+       
+  <!-- القسم الرئيسي -->
+  <main class="hero">
+    <!-- ✅ كل شيء الآن في وسط الصفحة: الصورة، الاسم، الإنستا -->
+    <div class="center-content">
+      <div class="glow-container">
+        <img src="haitham.jpg" alt="هيثم" class="profile" />
+      </div>
+
+      <h1 class="name" data-key="name">هيثم النعيمي</h1>
+      <p class="role" data-key="role">مصمم واجهات أمامية • كاتب إعلانات • ميديا باير</p>
+
+      <div class="social">
+        <a href="https://instagram.com/h1.1hk" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- الخدمات تبقى تحت الوسط (كما كانت) -->
+    <div class="services">
+      <span class="service" data-key="service1">تصميم واجهات احترافية</span>
+      <span class="service" data-key="service2">مواقع متجاوبة بالكامل</span>
+      <span class="service" data-key="service3">دعم 4 لغات (عربي، فارسي، إنجليزي، كردي)</span>
+    </div>
+  </main>
+
+  <!-- قسم الأعمـال (لم يُمسّ) -->
+  <section class="portfolio" id="portfolio-section">
+    <div class="portfolio-header">
+  <h2 class="section-title" data-key="portfolioTitle">أعمالي</h2>
+  <a href="projects.html" class="view-all-link" data-key="viewAll">شاهد جميع المشاريع</a>
+</div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-aos="fade-up">
+        <div class="portfolio-img">🎨</div>
+        <h3 data-key="proj1Title">موقع تجميل – واجهة أمامية</h3>
+        <p data-key="proj1Desc">تصميم وتطوير واجهة متجاوبة بلغات متعددة</p>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up">
+        <div class="portfolio-img">📈</div>
+        <h3 data-key="proj2Title">حملة إعلانية – ROAS 8.4x</h3>
+        <p data-key="proj2Desc">كتابة إعلانات + استهداف دقيق + تحسين أداء</p>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up">
+        <div class="portfolio-img">🌐</div>
+        <h3 data-key="proj3Title">منصة تعليمية – متعددة اللغات</h3>
+        <p data-key="proj3Desc">دعم عربي، فارسي، إنجليزي، كردي في نظام واحد</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text" data-key="footer">تصميم هيثم النعيمي © 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

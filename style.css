@@ -1,0 +1,416 @@
+/* ===== المتغيرات الأساسية (الوضع الداكن) ===== */
+:root {
+  --bg: #0b0b1a;
+  --text: #e6f0ff;
+  --accent: #00d4ff;
+  --card-bg: rgba(0, 20, 40, 0.6);
+  --bar-bg: rgba(11, 11, 26, 0.75);
+  --bar-border: rgba(0, 212, 255, 0.3);
+  --progress-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== الوضع الفاتح ===== */
+body.light-theme {
+  --bg: #f8faff;
+  --text: #0a1a3f;
+  --accent: #0077cc;
+  --card-bg: rgba(240, 248, 255, 0.8);
+  --bar-bg: rgba(255, 255, 255, 0.9);
+  --bar-border: rgba(0, 150, 255, 0.3);
+  --progress-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== التنسيق العام ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Cairo', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ===== شريط التقدم ===== */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--progress-bg);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.2s;
+}
+
+/* ===== الشريط العلوي ===== */
+.top-bar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: var(--bar-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bar-border);
+  border-radius: 30px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.language-bar {
+  display: flex;
+  gap: 12px;
+}
+
+.lang-item {
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.25s;
+  min-width: 60px;
+  text-align: center;
+}
+
+.lang-item:hover, .lang-item.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== زر العودة إلى الرئيسية (في صفحة المشاريع) ===== */
+.back-to-home {
+  text-align: center;
+  margin: 20px 0;
+  z-index: 100;
+  position: relative;
+}
+
+.back-btn {
+  display: inline-block;
+  background: var(--card-bg);
+  color: var(--accent);
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--bar-border);
+  transition: all 0.3s;
+  font-size: 1.1rem;
+}
+
+.back-btn:hover {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ===== القسم الرئيسي ===== */
+.hero, .portfolio, .projects-page {
+  padding: 100px 20px 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== التوسيط الجديد للصورة والإنستا ===== */
+.center-content {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.glow-container {
+  margin: 40px 0;
+  display: inline-block;
+  padding: 25px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.name {
+  font-size: 2.6rem;
+  margin: 20px 0 12px;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.role {
+  font-size: 1.15rem;
+  opacity: 0.85;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* ===== أيقونة الإنستغرام — مكبرة ===== */
+.social a {
+  color: var(--text);
+  transition: color 0.3s;
+  font-size: 2rem; /* ← تم تكبيرها */
+}
+
+.social a:hover {
+  color: var(--accent);
+}
+
+/* ===== الخدمات ===== */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.service {
+  background: var(--card-bg);
+  border: 1px solid var(--bar-border);
+  padding: 12px 22px;
+  border-radius: 16px;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s;
+}
+
+.service:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+}
+
+/* ===== قسم الأعمـال (الرئيسية) ===== */
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.view-all-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: opacity 0.3s;
+}
+
+.view-all-link:hover {
+  opacity: 0.8;
+}
+
+.portfolio {
+  background: rgba(0, 10, 20, 0.2);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  background: linear-gradient(to right, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.portfolio-item {
+  background: var(--card-bg);
+  border: 1px solid var(--bar-border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.portfolio-img {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.portfolio-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.portfolio-item p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* ===== صفحة المشاريع (projects.html) ===== */
+.projects-page {
+  max-width: 900px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  background: linear-gradient(to right, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--bar-border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* ===== ✅ صور المشاريع في مربعات متساوية ===== */
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.project-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-image:hover img {
+  transform: scale(1.05);
+}
+
+.project-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.project-links {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.3s;
+}
+
+.project-link:hover {
+  opacity: 0.9;
+}
+
+/* ===== الروابط والتذييل ===== */
+footer {
+  margin-top: auto;
+  padding: 40px 0 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+/* ===== الوضع الإنجليزي ===== */
+body.en {
+  font-family: 'Inter', sans-serif;
+  direction: ltr;
+}
+
+/* ===== الجوال ===== */
+@media (max-width: 600px) {
+  .top-bar {
+    top: 12px;
+    width: calc(100% - 40px);
+    left: 20px;
+    transform: none;
+    justify-content: space-between;
+    padding: 6px 12px;
+  }
+  .name { font-size: 2.1rem; }
+  .section-title { font-size: 1.8rem; }
+  .portfolio-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
